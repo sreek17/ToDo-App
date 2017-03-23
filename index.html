@@ -1,0 +1,27 @@
+<html ng-app="myApp">
+<head><title>ToDo App</title>
+    <script src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <script src="app.js"></script>
+    </head>
+<body ng-controller="myCntrl">
+    
+    <h1>ToDo App</h1>
+    <p>Add a Todo:</p>
+    <input ng-model="input1" type="text"><br>
+    <button ng-click="add()">Add</button>
+    <p>Your Todos</p>
+    <button ng-show="editMode" ng-click="edit()">Edit</button>
+    <button ng-show="!editMode" ng-click="edit()">Done</button>
+    <div ng-repeat="i in list track by $index">
+        {{$index+1}}
+        
+            <input ng-show="!editMode" type="text" ng-bind="i"  ng-model="i">
+         
+        <span ng-show="editMode">{{i}} <button ng-click="del($index)">Delete</button></span>
+    
+        
+    </div>
+    
+    
+    </body>
+</html>
